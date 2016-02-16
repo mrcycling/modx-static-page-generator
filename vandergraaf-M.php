@@ -41,7 +41,7 @@ foreach ($docs as $doc) {
       // minify
       $contents = preg_replace('/^\s+|\n|\r|\s+$/m', '', $contents);
 
-		 	// save new copy
+      // save new copy
       file_put_contents($baseurl . $web_url, $contents);
 		
    }
