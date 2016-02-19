@@ -13,3 +13,4 @@ Notes:
 Need to create homepage/index file, can not use default resource supplied with MODX.
 
 There is a bug with creating a new html file when the reource is saved for the first time.  Wayfinder will not add the new page into it output until the file is saved a second time.
+
