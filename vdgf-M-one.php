@@ -1,16 +1,12 @@
 <?php
-// Log all available properties of the $resource
-$modx->log(MODX_LOG_LEVEL_ERROR, print_r($resource->toArray(),true) );
 
 // Get the page id
 $rid = $resource->get('id');
 $web_url = $resource->get('uri');
 
-
 // define base file path
 $baseurl = '/PATH/TO/public_html/';
 
-// resource created
 // determine if folders exist and create if not    
 $path_parts = pathinfo($web_url);
 $target_path = $path_parts['dirname'];
@@ -29,4 +25,4 @@ $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis'
 $contents = preg_replace('/^\s+|\n|\r|\s+$/m', '', $contents);
 
 // save new copy
-   file_put_contents($baseurl . $web_url, $contents);
+file_put_contents($baseurl . $web_url, $contents);
