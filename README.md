@@ -7,14 +7,17 @@ Vandergraaf-M is a static generator, static html that is.  It fetches pages from
 Is a stand alone fetch and save PHP function, intended to be fired either manually or via a CRON job.  If fired by a CRON job it can be placed out of site from prying eyes under the public_html level.  Or installed above the public level and triggered through a browser call.
 &nbsp;<br>
 &nbsp;<br>
+
 **vdgf-M-one.php**
 Is a MODX snippet intnede to be used as a plug-in.  It is designed to replace or create a single html file when that resource is edited or created a new in MODX.  It should be attached to this system event - *onDocFormSave*.
-
+&nbsp;<br>
+&nbsp;<br>
 
 **vdgf-M-all.php**
 Designed to rebuild all pages whenever the templates, chunks or snippets are updated.  It should be attached to these system events: *OnChunkSave, OnChunkFormSave, OnTemplateSave, OnTempFormSave, OnSnippetSave, OnSnipFormSave*
-&nbsp;
-&nbsp;
+&nbsp;<br>
+&nbsp;<br>
+
 Notes:
 
 Need to create homepage/index file, can not use default resource supplied with MODX.
