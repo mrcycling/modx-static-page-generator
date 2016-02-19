@@ -15,15 +15,14 @@ $baseurl = '/FULL_SERVER_PATH/public_html/';
 // get collection of resources, determine id and if published
 $docs = $modx->getCollection('modResource');
 foreach ($docs as $doc) {
-   $pub = $doc->get('published');
-   $rid = $doc->get('id');
-   
-   // if published, fetch url and build static webpage
-   if ($pub == '1') {
-	
-      // fetch friendly url
-      $web_url = $modx->makeUrl($rid);
-      		
+      $pub = $doc->get('published');
+      $folder = $doc->get('isfolder');
+      $rid = $doc->get('id');
+      $web_url = $doc->get('uri');
+
+      // if published, fetch url and build static webpage
+      if (($pub == '1') && ($folder == '0')) {
+
       // determine if folders exist and create if not    
       $path_parts = pathinfo($web_url);
       $target_path = $path_parts['dirname'];
