@@ -23,5 +23,5 @@ Notes:
 
 Need to create homepage/index file, can not use default resource #1 supplied with MODX, as that defaults to index.php and will not create an index.html file for use on the static website.
 
-There is a bug when creating a new html file. When the reource is saved for the first time, Wayfinder will not add the new page into the navigation system.  The resource needs to be saved a second time and then the new page will appear in the navgiation tree.
+
 
