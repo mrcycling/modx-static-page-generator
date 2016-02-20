@@ -4,6 +4,8 @@
 $rid = $resource->get('id');
 $web_url = $resource->get('uri');
 
+$modx->reloadContext('web');
+
 // define base file path
 $baseurl = '/PATH/TO/public_html/';
 
