@@ -29,11 +29,9 @@ If media queries are used in the style section on a page, then they need to be s
 and (min-device-width : 600px) 
 and (max-device-width : 1024px) 
 and (orientation : portrait) {
-
 ```
 should be written as
 ```
 @media only screen and (min-device-width : 600px) and (max-device-width : 1024px) and (orientation : portrait) {
-
 ```
 
