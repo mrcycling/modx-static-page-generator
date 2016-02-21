@@ -9,12 +9,12 @@ Is a stand alone fetch and save PHP function, intended to be fired either manual
 &nbsp;<br>
 &nbsp;<br>
 
-**vdgf-M-one.php** - plug-in snippet<br>
-It is designed to replace or create a single html file when that resource is edited or created a new in MODX.  It should be attached to this system event - *onDocFormSave*.
+**vdgf-M-all.php** - plug-in snippet<br>
+It is designed to replace or create a single html file when that resource is edited or created a new in MODX. Also rebuilds full website on resource creation. It should be attached to this system event - *OnDocFormSave*.
 &nbsp;<br>
 &nbsp;<br>
 
-**vdgf-M-all.php** - plug-in snippet<br>
+**vdgf-M-full.php** - plug-in snippet<br>
 Designed to rebuild all pages whenever the templates, chunks or snippets are updated.  It should be attached to these system events: *OnChunkSave, OnChunkFormSave, OnTemplateSave, OnTempFormSave, OnSnippetSave, OnSnipFormSave*
 &nbsp;<br>
 &nbsp;<br>
