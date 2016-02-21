@@ -10,7 +10,7 @@ $modx->reloadContext('web');
 $baseurl = '/PATH/TO/public_html/';
 
 // determine if folders exist and create if not    
-$path_parts = pathinfo($web_url);
+$path_parts = pathinfo($baseurl . $web_url);
 $target_path = $path_parts['dirname'];
           
 if (!file_exists($target_path)) {
