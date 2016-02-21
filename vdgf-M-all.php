@@ -18,7 +18,7 @@ foreach ($docs as $doc) {
 	if (($pub == '1') && ($folder == '0')) {
       		
     // determine if folders exist and create if not    
-    $path_parts = pathinfo($web_url);
+    $path_parts = pathinfo($baseurl . $web_url);
     $target_path = $path_parts['dirname'];
           
     if (!file_exists($target_path)) {
