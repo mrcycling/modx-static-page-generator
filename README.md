@@ -23,5 +23,17 @@ Notes:
 
 Need to create homepage/index file, can not use default resource #1 supplied with MODX, as that defaults to index.php and will not create an index.html file for use on the static website.
 
+If media queries are used in the style section on a page, then they need to be single lined to avoid being corrupted due to white space removal by the minifying process:
+```
+@media only screen 
+and (min-device-width : 600px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
 
+```
+should be written as
+```
+@media only screen and (min-device-width : 600px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+```
 
