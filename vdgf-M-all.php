@@ -1,8 +1,11 @@
 <?php
 
-// define base file path and url  UPDATE BEFORE USING!
+// define locations  UPDATE BEFORE USING!
+// base file path to where static files will be saved
 $basepath = '/**FULL_SERVER_PATH**/public_html/';
-$baseurl = 'http://**YOUR.DOMAIN.COM**/';
+
+// url to your modx install
+$baseurl = 'http://**URL-TO-MODX-INSTALL**/';
     
 // check if new or update
 if ($mode == 'upd') {
