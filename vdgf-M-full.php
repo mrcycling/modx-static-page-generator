@@ -2,13 +2,13 @@
     
 // define locations  UPDATE BEFORE USING!
 // base file path to where static files will be saved
-$basepath = '/**FULL_SERVER_PATH**/public_html/';
+$basepath = '/FULL_SERVER_PATH/public_html/';
 
 // url to your modx install
-$baseurl = 'http://**URL-TO-MODX-INSTALL**/';
+$mdxurl = 'http://URL-TO-MODX-INSTALL/';
 
-// reset from previous functions before rebuilding
-$modx->reloadContext('web');
+// - - - - - - - - - end configuration - - - - - - - - - 
+
         
 //getting the published ids
 // get collection of resources, determine id and if published
@@ -23,7 +23,7 @@ foreach ($docs as $doc) {
     if (($pub == '1') && ($folder == '0')) {
           
     // determine if folders exist and create if not
-    $path_parts = pathinfo($baseurl . $web_url);
+    $path_parts = pathinfo($basepath . $web_url);
     $target_path = $path_parts['dirname'];
       
     if (!file_exists($target_path)) {
@@ -31,7 +31,7 @@ foreach ($docs as $doc) {
     }
       
     // get the webpage from MODX
-    $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
+    $contents = file_get_contents($mdxurl . 'index.php?id=' . $rid);
      
     // remove comments
     $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
@@ -40,7 +40,7 @@ foreach ($docs as $doc) {
     $contents = preg_replace('/^\s+|\n|\r|\s+$/m', '', $contents);
     
     // save new copy
-    file_put_contents($baseurl . $web_url, $contents);
+    file_put_contents($basepath . $web_url, $contents);
       
     }
 }
