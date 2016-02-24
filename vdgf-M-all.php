@@ -1,5 +1,9 @@
 <?php
 
+// define base file path and url  UPDATE BEFORE USING!
+$basepath = '/**FULL_SERVER_PATH**/public_html/';
+$baseurl = 'http://**YOUR.DOMAIN.COM**/';
+    
 // check if new or update
 if ($mode == 'upd') {
     // run single page code
@@ -10,12 +14,9 @@ if ($mode == 'upd') {
     
     $modx->reloadContext('web');
     
-    // define base file path
-    $baseurl = '/home/bierboy/sbdm/sandbox/modx/';
-    
     // resource created
     // determine if folders exist and create if not
-    $path_parts = pathinfo($baseurl . $web_url);
+    $path_parts = pathinfo($basepath . $web_url);
     $target_path = $path_parts['dirname'];
       
     if (!file_exists($target_path)) {
@@ -23,7 +24,7 @@ if ($mode == 'upd') {
     }
       
     // get the webpage from MODX
-    $contents = file_get_contents('http://sandbox.pedalerspubandgrille.com/modx/test/index.php?id=' . $rid);
+    $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
      
     // remove comments
     $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
@@ -32,14 +33,11 @@ if ($mode == 'upd') {
     $contents = preg_replace('/^\s+|\n|\r|\s+$/m', '', $contents);
     
     // save new copy
-    file_put_contents($baseurl . $web_url, $contents);
+    file_put_contents($basepath . $web_url, $contents);
 
 }
 else {
     // rebuild full website
-    
-    // define base directory, can be changed for testing 
-    $baseurl = '/home/bierboy/sbdm/sandbox/modx/';
 
     $modx->reloadContext('web');
         
@@ -56,7 +54,7 @@ else {
     if (($pub == '1') && ($folder == '0')) {
       
         // determine if folders exist and create if not
-        $path_parts = pathinfo($baseurl . $web_url);
+        $path_parts = pathinfo($basepath . $web_url);
         $target_path = $path_parts['dirname'];
           
         if (!file_exists($target_path)) {
@@ -64,7 +62,7 @@ else {
         }
           
         // get the webpage from MODX
-        $contents = file_get_contents('http://sandbox.pedalerspubandgrille.com/modx/test/index.php?id=' . $rid);
+        $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
          
         // remove comments
         $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
@@ -73,7 +71,7 @@ else {
         $contents = preg_replace('/^\s+|\n|\r|\s+$/m', '', $contents);
         
         // save new copy
-        file_put_contents($baseurl . $web_url, $contents);
+        file_put_contents($basepath . $web_url, $contents);
           
         }
     }
