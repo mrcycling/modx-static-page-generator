@@ -1,8 +1,13 @@
 // rebuild all pages after chunk, template or snippet update
     
-// define base directory, can be changed for testing 
-$baseurl = '/home/bierboy/sbdm/sandbox/modx/';
+// define locations  UPDATE BEFORE USING!
+// base file path to where static files will be saved
+$basepath = '/**FULL_SERVER_PATH**/public_html/';
 
+// url to your modx install
+$baseurl = 'http://**URL-TO-MODX-INSTALL**/';
+
+// reset from previous functions before rebuilding
 $modx->reloadContext('web');
         
 //getting the published ids
@@ -26,7 +31,7 @@ foreach ($docs as $doc) {
     }
       
     // get the webpage from MODX
-    $contents = file_get_contents('http://sandbox.pedalerspubandgrille.com/modx/test/index.php?id=' . $rid);
+    $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
      
     // remove comments
     $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
