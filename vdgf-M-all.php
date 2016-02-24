@@ -2,10 +2,13 @@
 
 // define locations  UPDATE BEFORE USING!
 // base file path to where static files will be saved
-$basepath = '/**FULL_SERVER_PATH**/public_html/';
+$basepath = '/FULL_SERVER_PATH/public_html/';
 
 // url to your modx install
-$baseurl = 'http://**URL-TO-MODX-INSTALL**/';
+$mdxurl = 'http://URL-TO-MODX-INSTALL/';
+
+// - - - - - - - - - end configuration - - - - - - - - - 
+
     
 // check if new or update
 if ($mode == 'upd') {
@@ -27,7 +30,7 @@ if ($mode == 'upd') {
     }
       
     // get the webpage from MODX
-    $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
+    $contents = file_get_contents($mdxurl . 'index.php?id=' . $rid);
      
     // remove comments
     $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
@@ -65,7 +68,7 @@ else {
         }
           
         // get the webpage from MODX
-        $contents = file_get_contents($baseurl . 'index.php?id=' . $rid);
+        $contents = file_get_contents($mdxurl . 'index.php?id=' . $rid);
          
         // remove comments
         $contents = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/Uis', '', $contents);
