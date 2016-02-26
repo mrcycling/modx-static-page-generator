@@ -5,17 +5,31 @@ Vandergraaf-M is a static generator, static html that is.  It fetches pages from
 &nbsp;<br>
 
 **vandergraaf-M.php** - external php file<br>
-Is a stand alone fetch and save PHP function, intended to be fired either manually or via a CRON job.  If fired by a CRON job it can be placed out of site from prying eyes under the public_html level.  Or installed above the public level and triggered through a browser call.
+Is a stand alone fetch and save PHP function, intended to be fired either manually or via a CRON job.  If fired by a CRON job it can be placed out of sight from prying eyes under the public_html level.  Or installed above the public level and triggered through a browser call.
 &nbsp;<br>
 &nbsp;<br>
 
-**vdgf-M-all.php** - plug-in snippet<br>
+**vdgf-M-main.php** - plug-in snippet<br>
+This is the main snippet to use when creating a useful plug-in for clients. It is designed to handle most common functions that the end user will be performing. It should be attached to these system events: *OnDecFormSave, OnBeforeEmptyTrach, OnEmptyTrash, OnChunkFormSave, OnTempFormSave, OnSnipFormSave*
+
+Current functions are as follow:
+
+Editing a resource - *OnDocFormSave*<br>
+If updating a resource will rebuild just the single html file for that resource. If creating a new resource, will rebuild entire website to incorporate both new html page and changes to navigation.
+
+Deleting a resource - *OnBeforeEmptyTrash, OnEmptyTrash*<br>
+The system triggers only when enptying the trash, it does nothing when the resource is initally deleted. During the OnBefore phase it will delete the html files related to the resources being purged, then after trash is emptied will rebuild the entire website without the deleted resources.
+
+Editing template - *OnTempFormSave*<br>
+Will rebuild only pages using the template that was just edited.
+
+Editing chunks or snippets - *OnChunkFormSave, OnSnipFormSave*<br>
+Will rebuild all pages
+&nbsp;<br>
+&nbsp;<br>
+
+**vdgf-M-basic.php** - plug-in snippet<br>
 It is designed to replace or create a single html file when that resource is edited or created a new in MODX. Also rebuilds full website on resource creation. It should be attached to this system event - *OnDocFormSave*.
-&nbsp;<br>
-&nbsp;<br>
-
-**vdgf-M-full.php** - plug-in snippet<br>
-Designed to rebuild all pages whenever the templates, chunks or snippets are updated.  It should be attached to these system events: *OnChunkSave, OnChunkFormSave, OnTemplateSave, OnTempFormSave, OnSnippetSave, OnSnipFormSave*
 &nbsp;<br>
 &nbsp;<br>
 
