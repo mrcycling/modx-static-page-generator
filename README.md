@@ -10,7 +10,7 @@ Is a stand alone fetch and save PHP function, intended to be fired either manual
 &nbsp;<br>
 
 **vdgf-M-main.php** - plug-in snippet<br>
-This is the main snippet to use when creating a useful plug-in for clients. It is designed to handle most common functions that the end user will be performing. It should be attached to these system events: *OnDecFormSave, OnBeforeEmptyTrach, OnEmptyTrash, OnChunkFormSave, OnTempFormSave, OnSnipFormSave*
+This is the main snippet to use when creating a useful plug-in for clients. It is designed to handle most common functions that the end user will be performing. It should be attached to these system events: *OnDocFormSave, OnBeforeEmptyTrach, OnEmptyTrash, OnChunkFormSave, OnTempFormSave, OnSnipFormSave*
 
 Current functions are as follow:
 
@@ -35,9 +35,9 @@ It is designed to replace or create a single html file when that resource is edi
 
 Notes:
 
-Need to create homepage/index file, can not use default resource #1 supplied with MODX, as that defaults to index.php and will not create an index.html file for use on the static website.
+:small_orange_diamond: Need to create homepage/index file, can not use default resource #1 supplied with MODX, as that defaults to index.php and will not create an index.html file for use on the static website.
 
-If media queries are used in the style section on a page, then they need to be single lined to avoid being corrupted due to white space removal by the minifying process:
+:small_orange_diamond: If media queries are used in the style section on a page, then they need to be single lined to avoid being corrupted due to white space removal by the minifying process:
 ```
 @media only screen 
 and (min-device-width : 600px) 
@@ -48,4 +48,4 @@ should be written as
 ```
 @media only screen and (min-device-width : 600px) and (max-device-width : 1024px) and (orientation : portrait) {
 ```
-PHP functions intended to be run upon serving the saved pages can be included within the html of the template, content, chunks, tv.  MODX will ignore any PHP not included in snippets.  Of course you would need to save the file as .php or configure your server to treat .html as PHP.
+:small_orange_diamond: PHP functions intended to be run upon serving the saved pages can be included within the html of the template, content, chunks, tv.  MODX will ignore any PHP not included in snippets.  Of course you would need to save the file as .php or configure your server to treat .html as PHP.
