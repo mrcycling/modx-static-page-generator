@@ -48,4 +48,4 @@ should be written as
 ```
 @media only screen and (min-device-width : 600px) and (max-device-width : 1024px) and (orientation : portrait) {
 ```
-
+PHP functions intended to be run upon serving the saved pages can be included within the html of the template, content, chunks, tv.  MODX will ignore any PHP not included in snippets.  Of course you would need to save the file as .php or configure your server to treat .html as PHP.
